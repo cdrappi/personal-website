@@ -4,7 +4,7 @@
 npm run build;
 
 built_site_path=${WORKSPACE_PATH}/cdrappi.github.io/;
-svelte_site_path=${WORKSPACE_PATH}/personal_website/;
+public_site_path=${WORKSPACE_PATH}/personal_website/;
 
 # Copy our built files to a new repo
 cp public/ built_site_path;
@@ -18,4 +18,4 @@ fi
 
 git add -A :/ && git commit -am commit_message && git push origin master
 
-cd svelte_site_path;
+cd public_site_path;
