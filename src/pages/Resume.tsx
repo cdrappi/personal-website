@@ -72,15 +72,6 @@ const ExperienceSection: React.FC<{
         )
     }
 
-
-const SkillsSection: React.FC<{ title: string, skills: string[], openInitially?: boolean }> = ({ title, skills, openInitially = false }) =>
-    <CollapsibleSection title={title} openInitially={openInitially}>
-        <ul className="list-disc ml-8 text-slate-600">
-            {skills.map((s, i) => <li key={i}>{s}</li>)}
-        </ul>
-    </CollapsibleSection>
-
-
 const LinkText: React.FC<{ url: string, text: string, title?: string }> = ({ url, text, title }) =>
     <a
         href={url}
@@ -91,6 +82,13 @@ const LinkText: React.FC<{ url: string, text: string, title?: string }> = ({ url
     >
         {text}
     </a>
+
+const SkillsSection: React.FC<{ title: string, skills: string[], openInitially?: boolean }> = ({ title, skills, openInitially = false }) =>
+    <CollapsibleSection title={title} openInitially={openInitially}>
+        <ul className="list-disc ml-8 text-slate-600">
+            {skills.map((s, i) => <li key={i}>{s}</li>)}
+        </ul>
+    </CollapsibleSection>
 
 
 const WorkExperience: React.FC = () => {
@@ -182,6 +180,20 @@ const WorkExperience: React.FC = () => {
     )
 }
 
+const CodeSamples: React.FC = () => {
+    return (
+        <div className="mb-8">
+            <h3 className="text-xl font-semibold text-blue-900 mb-2">Code Samples</h3>
+            <CollapsibleSection title="Card game utilities" openInitially={true}>
+                A Python & C++ <LinkText text='library' url="https://github.com/cdrappi/card_utils" /> to manage game state for gin rummy & poker variants
+            </CollapsibleSection>
+            {/* <CollapsibleSection title="NFL PBP sims" openInitially={true}>
+                A play-by-play NFL <LinkText text='simulator' url="https://github.com/cdrappi/nfl_sims" /> written in Rust. Uses Python for data modeling
+            </CollapsibleSection> */}
+        </div>
+    )
+}
+
 const TechnicalSkills: React.FC = () => {
     return (
         <div className="mb-8">
@@ -233,6 +245,7 @@ const Resume: React.FC = () => {
             <h2 className="text-2xl font-bold text-slate-700 mb-6">Christian Drappi</h2>
             <WorkExperience />
             <TechnicalSkills />
+            <CodeSamples />
         </div>
     );
 }
