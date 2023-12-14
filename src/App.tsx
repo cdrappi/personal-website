@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, NavLink, Routes, Navigate } from 'react-router-dom';
+import { HashRouter, Route, NavLink, Routes, Navigate } from 'react-router-dom';
 import Resume from './pages/Resume';
 import Home from './pages/Home';
 import './App.css';
@@ -11,7 +11,7 @@ const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <nav className="sticky top-0 bg-gray-800 p-4">
           <NavLink
@@ -35,7 +35,7 @@ const App = () => {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
