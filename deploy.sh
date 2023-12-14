@@ -3,8 +3,8 @@
 # Re-build our app
 npm run build;
 
-built_site_path=${WORKSPACE_PATH}/cdrappi.github.io/;
-public_site_path=${WORKSPACE_PATH}/personal_website/;
+built_site_path=${CODE_PATH}/cdrappi.github.io/;
+public_site_path=${CODE_PATH}/personal_website/;
 
 # Copy our built files to a new repo
 cp public/ built_site_path;
