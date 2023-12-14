@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Re-build our app
-# npm run build;
+npm run build;
 
 BUILD_DIR=${CODE_PATH}/cdrappi.github.io/;
 
@@ -18,5 +18,4 @@ if [ "$1" != "" ]; then
     commit_message="$1"
 fi
 
-
-# git add -A :/ && git commit -am commit_message && git push origin master
+git add -A :/ && git commit -am commit_message && git push origin master
