@@ -9,11 +9,11 @@ const navLinkClassName = ({ isActive }: { isActive: boolean }) =>
     ? "text-white px-4 py-2 rounded bg-gray-700"
     : "text-white px-4 py-2 rounded hover:bg-gray-700";
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div>
-        <nav className="bg-gray-800 p-4">
+        <nav className="sticky top-0 bg-gray-800 p-4">
           <NavLink
             to="/"
             className={navLinkClassName}

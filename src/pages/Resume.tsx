@@ -72,7 +72,7 @@ const ExperienceSection: React.FC<{
         )
     }
 
-const LinkText: React.FC<{ url: string, text: string, title?: string }> = ({ url, text, title }) =>
+export const LinkText: React.FC<{ url: string, text: string, title?: string }> = ({ url, text, title }) =>
     <a
         href={url}
         target="_blank"
@@ -184,12 +184,12 @@ const CodeSamples: React.FC = () => {
     return (
         <div className="mb-8">
             <h3 className="text-xl font-semibold text-blue-900 mb-2">Code Samples</h3>
+            <CollapsibleSection title="NFL PBP sims" openInitially={true}>
+                A play-by-play NFL <LinkText text='simulator' url="https://github.com/cdrappi/nfl_sims" /> written in Rust. Uses Python for data modeling
+            </CollapsibleSection>
             <CollapsibleSection title="Card game utilities" openInitially={true}>
                 A Python & C++ <LinkText text='library' url="https://github.com/cdrappi/card_utils" /> to manage game state for gin rummy & poker variants
             </CollapsibleSection>
-            {/* <CollapsibleSection title="NFL PBP sims" openInitially={true}>
-                A play-by-play NFL <LinkText text='simulator' url="https://github.com/cdrappi/nfl_sims" /> written in Rust. Uses Python for data modeling
-            </CollapsibleSection> */}
         </div>
     )
 }
@@ -213,7 +213,7 @@ const TechnicalSkills: React.FC = () => {
                 skills={[
                     "SQLAlchemy, Alembic, Django, Flask, Quart, Mypy",
                     "React / React Native, Express",
-                    "Tokio, Rocket, Diesel, Rayon"
+                    "Tokio, Rocket, Diesel"
                 ]}
             />
             <SkillsSection
