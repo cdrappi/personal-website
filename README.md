@@ -2,7 +2,7 @@
 cdrappi's github pages
 
 # deploying
-git subtree push --prefix public origin gh-pages
+Run `./deploy.sh` from repo root
 
 # Getting Started with Create React App
 
