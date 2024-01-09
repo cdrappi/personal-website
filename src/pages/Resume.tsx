@@ -168,7 +168,7 @@ const WorkExperience: React.FC = () => {
                 includeCompanyComma={false}
                 dates="Oct 2017 - Jul 2019"
                 bullets={[
-                    { text: "Semi-automated market-making & taking returned slightly over 1000% in 20 months" },
+                    { text: "Semi-automated market-making & taking: returned slightly over 1000% in 20 months" },
                     { text: "Built quoting engine, volatility surface models and tools to manage risk & monitor order flow" },
                     { text: "Ceased operations in anticipation of the platform closing to American residents" }
                 ]}
