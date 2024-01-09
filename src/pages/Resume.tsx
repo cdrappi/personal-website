@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
+const SectionHeader: React.FC<{ title: string }> = ({ title }) => {
+    return (
+        <h3 className="text-xl font-semibold text-blue-900 mb-2 overflow-x-auto whitespace-nowrap">
+            {title}
+        </h3>
+    )
+}
+
 const CollapsibleSection: React.FC<{ title: React.ReactNode, children: React.ReactNode, openInitially: boolean }> = ({ title, children, openInitially }) => {
     const [isOpen, setIsOpen] = useState(openInitially);
 
@@ -7,7 +15,7 @@ const CollapsibleSection: React.FC<{ title: React.ReactNode, children: React.Rea
         <div className="mb-0">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`text-left w-full text-l font-semibold pt-2 pb-1 ${isOpen ? 'text-slate-800' : 'text-slate-500'}`}
+                className={`text-left w-full text-l font-semibold pt-2 pb-1 overflow-x-auto whitespace-nowrap ${isOpen ? 'text-slate-800' : 'text-slate-500'}`}
             >
                 {title}
                 <span
@@ -29,6 +37,13 @@ const CollapsibleSection: React.FC<{ title: React.ReactNode, children: React.Rea
     );
 };
 
+const WrappedContent: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    return (
+        <div className="overflow-auto whitespace-normal">
+            {children}
+        </div>
+    )
+}
 
 type Bullet = {
     text: React.ReactNode,
@@ -55,7 +70,8 @@ const ExperienceSection: React.FC<{
                 title={<>{role}{company && <>{includeCompanyComma ? "," : ""} <i>{company}</i></>}</>}
                 openInitially={openInitially}
             >
-                <>
+
+                <WrappedContent>
                     <p className="text-slate-500 pb-1">{dates}</p>
                     <ul className="list-disc ml-5 text-slate-600">
                         {bullets.map((b, i) =>
@@ -67,7 +83,7 @@ const ExperienceSection: React.FC<{
                             </li>)
                         }
                     </ul>
-                </>
+                </WrappedContent>
             </CollapsibleSection>
         )
     }
@@ -85,16 +101,17 @@ export const LinkText: React.FC<{ url: string, text: string, title?: string }> =
 
 const SkillsSection: React.FC<{ title: string, skills: string[], openInitially?: boolean }> = ({ title, skills, openInitially = false }) =>
     <CollapsibleSection title={title} openInitially={openInitially}>
-        <ul className="list-disc ml-8 text-slate-600">
-            {skills.map((s, i) => <li key={i}>{s}</li>)}
-        </ul>
+        <WrappedContent>
+            <ul className="list-disc ml-8 text-slate-600">
+                {skills.map((s, i) => <li key={i}>{s}</li>)}
+            </ul>
+        </WrappedContent>
     </CollapsibleSection>
-
 
 const WorkExperience: React.FC = () => {
     return (
         <div id="work" className="mb-8">
-            <h3 className="text-xl font-semibold text-blue-900 mb-2">Work Experience</h3>
+            <SectionHeader title="Work Experience" />
             <ExperienceSection
                 role="Software Engineer"
                 company="Alameda Research"
@@ -180,19 +197,30 @@ const WorkExperience: React.FC = () => {
     )
 }
 
+const CodeSample: React.FC<{ title: string, openInitially: boolean, children: React.ReactNode }> = ({ title, openInitially, children }) => {
+    return (
+        <CollapsibleSection title={title} openInitially={openInitially}>
+            <WrappedContent>
+                {children}
+            </WrappedContent>
+        </CollapsibleSection>
+
+    )
+}
+
 const CodeSamples: React.FC = () => {
     return (
         <div id="code" className="mb-8">
-            <h3 className="text-xl font-semibold text-blue-900 mb-2">Code Samples</h3>
-            <CollapsibleSection title="NFL PBP sims" openInitially={true}>
+            <SectionHeader title="Code Samples" />
+            <CodeSample title="NFL PBP sims" openInitially={false}>
                 A play-by-play NFL <LinkText text='simulator' url="https://github.com/cdrappi/nfl_sims" /> written in Rust. Uses Python for data modeling
-            </CollapsibleSection>
-            <CollapsibleSection title="Card game utilities" openInitially={true}>
-                A Python & C++ <LinkText text='library' url="https://github.com/cdrappi/card_utils" /> to manage game state for gin rummy & poker variants
-            </CollapsibleSection>
-            <CollapsibleSection title="This website" openInitially={false}>
-                My personal <LinkText text='website' url="https://github.com/cdrappi/personal_website" /> built with React & Tailwind
-            </CollapsibleSection>
+            </CodeSample>
+            <CodeSample title="Card game utilities" openInitially={false}>
+                A C++ <LinkText text='library' url="https://github.com/cdrappi/card_utils" /> with Python bindings to manage game state for gin rummy & poker variants
+            </CodeSample>
+            <CodeSample title="This website" openInitially={false}>
+                <LinkText text='Built' url="https://github.com/cdrappi/personal_website" /> with React & Tailwind CSS
+            </CodeSample>
         </div>
     )
 }
@@ -200,7 +228,7 @@ const CodeSamples: React.FC = () => {
 const TechnicalSkills: React.FC = () => {
     return (
         <div id="tech" className="mb-8">
-            <h3 className="text-xl font-semibold text-blue-900 mb-2">Technical Skills</h3>
+            <SectionHeader title="Technical Skills" />
             <SkillsSection
                 title="Languages"
                 skills={[
@@ -272,7 +300,7 @@ const Resume: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4m">
             <h2 className="text-2xl font-bold text-slate-700 mb-6">Christian Drappi</h2>
             <WorkExperience />
             <TechnicalSkills />
