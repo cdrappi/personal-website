@@ -130,8 +130,8 @@ const WorkExperience: React.FC = () => {
                         text: "Some smaller projects",
                         subBullets: [
                             "about a dozen CEX & DEX integrations",
-                            "several performance improvements Alameda's trading bots, including making colocated bots fault tolerant",
-                            "built many kill switches & alerts that saved ~$15M",
+                            "many performance improvements Alameda's trading systems, including making colocated bots fault tolerant",
+                            "built several kill switches & alerts that saved ~$15M",
                             "introduced parameters for traders to adjust models"
                         ]
                     },
