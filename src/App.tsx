@@ -13,7 +13,7 @@ const App = () => {
   return (
     <HashRouter>
       <div>
-        <nav className="sticky top-0 bg-gray-800 p-4">
+        <nav className="sticky top-0 bg-gray-800 p-4 overflow-x-auto">
           <NavLink
             to="/"
             className={navLinkClassName}
