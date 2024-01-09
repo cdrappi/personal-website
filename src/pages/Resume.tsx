@@ -100,7 +100,7 @@ const WorkExperience: React.FC = () => {
                 company="Alameda Research"
                 dates="May 2021 - Nov 2022"
                 bullets={[
-                    { text: "1st in LoC, commits, deploys & incident responses during tenure; 1 of 2 to handle on-call duties" },
+                    { text: "1st in LoC, commits, deploys & incident responses during tenure; 1 of 2 to handle on-call duties 24/7" },
                     {
                         text: "Larger projects",
                         subBullets: [
@@ -113,8 +113,8 @@ const WorkExperience: React.FC = () => {
                         text: "Some smaller projects",
                         subBullets: [
                             "about a dozen CEX & DEX integrations",
-                            "made colocated bots fault tolerant",
-                            "built several kill switches & alerts that saved ~$15M",
+                            "several performance improvements Alameda's trading bots, including making colocated bots fault tolerant",
+                            "built many kill switches & alerts that saved ~$15M",
                             "introduced parameters for traders to adjust models"
                         ]
                     },
@@ -151,7 +151,7 @@ const WorkExperience: React.FC = () => {
                 includeCompanyComma={false}
                 dates="Oct 2017 - Jul 2019"
                 bullets={[
-                    { text: "Semi-automated market-making & taking, returning slightly over 1000% in 20 months" },
+                    { text: "Semi-automated market-making & taking returned slightly over 1000% in 20 months" },
                     { text: "Built quoting engine, volatility surface models and tools to manage risk & monitor order flow" },
                     { text: "Ceased operations in anticipation of the platform closing to American residents" }
                 ]}
@@ -190,6 +190,9 @@ const CodeSamples: React.FC = () => {
             <CollapsibleSection title="Card game utilities" openInitially={true}>
                 A Python & C++ <LinkText text='library' url="https://github.com/cdrappi/card_utils" /> to manage game state for gin rummy & poker variants
             </CollapsibleSection>
+            <CollapsibleSection title="This website" openInitially={false}>
+                My personal <LinkText text='website' url="https://github.com/cdrappi/personal_website" /> built with React & Tailwind
+            </CollapsibleSection>
         </div>
     )
 }
@@ -204,7 +207,7 @@ const TechnicalSkills: React.FC = () => {
                     "Python",
                     "Javascript/Typescript",
                     "Rust",
-                    "Some C++, Swift, R",
+                    "Some C++, Swift, R and unfortunately PHP",
                 ]}
                 openInitially={true}
             />
@@ -212,18 +215,17 @@ const TechnicalSkills: React.FC = () => {
                 title="Libraries"
                 skills={[
                     "SQLAlchemy, Alembic, Django, Flask, Quart, Mypy",
-                    "React / React Native, Express",
-                    "Tokio, Rocket, Diesel"
+                    "React / React Native, Vue.js, Express",
+                    "Tokio, Rocket, Diesel",
+                    "Laravel (PHP)"
                 ]}
             />
             <SkillsSection
                 title="DevOps"
                 skills={[
-                    "AWS: EC2, RDS, S3, Redshift, Route 53, Security Groups",
-                    "GCP: Cloud Run, VMs, TPU, Storage, Pub/Sub",
+                    "AWS, GCP",
                     "Docker",
                     "Terraform",
-                    "Experience managing self-hosted Redis clusters",
                 ]}
             />
             <SkillsSection
